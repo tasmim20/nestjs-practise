@@ -19,17 +19,17 @@ import { UpdateUserDto } from './dto/update-user.dto';
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
 
-  @Get() //GET /users  or /users?role=value
+  @Get()
   findAll(@Query('role') role?: 'INTERN' | 'ENGINEER' | 'ADMIN') {
     void role;
     return this.userService.findAll(role);
   }
 
-  @Get(':id') //GET / users/:id
+  @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.userService.findOne(id);
   }
-  @Get('interns') //GET / users/:id
+  @Get('interns')
   findAllIntern() {
     return [];
   }
